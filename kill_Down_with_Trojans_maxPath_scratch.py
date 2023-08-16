@@ -29,13 +29,15 @@ def DP(n, H, tile_types, tile_values):
     memo = np.empty((n, n, 2, 2))
     memo[:] = np.nan
 
-    # print("\nmemo before:")      # COMMENT OUT!!!
+    print("\nmemo before:")      # COMMENT OUT!!!
+    print(memo.transpose((3, 2, 0, 1)))  #might need to flip 3 and 2
     # print(memo)                  # COMMENT OUT!!!
     #temp = DP_helper(memo, n, H, tile_types, tile_values, 0, 0, 0, 0)
     #res = H + temp
     #res = temp
     res = DP_helper(memo, n, H, tile_types, tile_values, 0, 0, 0, 0)
-    # print("memo after:")         # COMMENT OUT!!!
+    print("memo after:")         # COMMENT OUT!!!
+    print(memo.transpose((3, 2, 0, 1)))  #might need to flip 3 and 2
     # print(memo)                  # COMMENT OUT!!!
     # print("Starting hp:", H)
     # print("res:", res)
@@ -55,6 +57,7 @@ def DP(n, H, tile_types, tile_values):
 # Edit 3: 88/100, capped hp at H instead of 0
 # Edit 4: 90/100, changed cap back to 0, cuz it helper doesnt need the starting hp
 # Edit 5: 96/100, forgot to change threshold in if statement when changing cap
+# Edit 6: 100/100, same dumbass one line mistake as the minHP needed approach cuz this is just copy pasted from that
 def DP_helper(memo, n, H, tile_types, tile_values, x, y, pTok, mTok):  #same as min hp needed approach but max hp gain instead
     if x == n-1 and y == n-1:
         if tile_types[x][y] == 0 and pTok != 1:
@@ -84,7 +87,7 @@ def DP_helper(memo, n, H, tile_types, tile_values, x, y, pTok, mTok):  #same as 
             tok_right = DP_helper(memo, n, H, tile_types, tile_values, x, y + 1, pTok, 0) + 2 * tile_values[x][y]
             down = DP_helper(memo, n, H, tile_types, tile_values, x + 1, y, pTok, 1) + tile_values[x][y]
             right = DP_helper(memo, n, H, tile_types, tile_values, x, y + 1, pTok, 1) + tile_values[x][y]
-            ans = max(down, right)
+            ans = max(tok_down, tok_right, down, right)
         else:
             down = DP_helper(memo, n, H, tile_types, tile_values, x + 1, y, pTok, 0) + tile_values[x][y]
             right = DP_helper(memo, n, H, tile_types, tile_values, x, y + 1, pTok, 0) + tile_values[x][y]
@@ -107,6 +110,7 @@ def DP_helper(memo, n, H, tile_types, tile_values, x, y, pTok, mTok):  #same as 
     memo[x][y][pTok][mTok] = ans     #are these the right values for ptok and mtok in memo
     return ans
 
+
 def write_output_file(output_file_name, result):
     with open(output_file_name, 'w') as file:
         file.write(str(int(result)))
@@ -114,7 +118,7 @@ def write_output_file(output_file_name, result):
 
 def main(input_file_name):
     n, H, tile_types, tile_values = load_input_file(input_file_name)
-    #print_tile_data(tile_types, tile_values)
+    print_tile_data(tile_types, tile_values)
     result = DP(n, H, tile_types, tile_values)
     print("Result: " + str(result))
     output_file_name = input_file_name.replace(".txt", "_out.txt")

@@ -49,6 +49,7 @@ def DP(n, H, tile_types, tile_values):
 
 
 # currently passes 96/100 -_-
+# edit passes 100/100 now, fucking dumbass mistake lol
 def DP_helper(memo, n, tile_types, tile_values, x, y, pTok, mTok):  #add tokens later
     if x == n-1 and y == n-1:
         if tile_types[x][y] == 0 and pTok != 1:
@@ -77,7 +78,8 @@ def DP_helper(memo, n, tile_types, tile_values, x, y, pTok, mTok):  #add tokens 
             tok_right = DP_helper(memo, n, tile_types, tile_values, x, y + 1, pTok, 0) - 2 * tile_values[x][y]
             down = DP_helper(memo, n, tile_types, tile_values, x + 1, y, pTok, 1) - tile_values[x][y]
             right = DP_helper(memo, n, tile_types, tile_values, x, y + 1, pTok, 1) - tile_values[x][y]
-            ans = min(down, right)
+            #ans = min(down, right)    #bruhhh copy pasted the wrong line smh. THIS WAS THE PROBLEM HOLY SHIT, no wonder it wasnt using mult tokens...
+            ans = min(tok_down, tok_right, down, right)
         else:
             down = DP_helper(memo, n, tile_types, tile_values, x + 1, y, pTok, 0) - tile_values[x][y]
             right = DP_helper(memo, n, tile_types, tile_values, x, y + 1, pTok, 0) - tile_values[x][y]
@@ -94,6 +96,7 @@ def DP_helper(memo, n, tile_types, tile_values, x, y, pTok, mTok):  #add tokens 
         ans = 0
     memo[x][y][pTok][mTok] = ans     #are these the right values for ptok and mtok in memo
     return ans
+
 
 def write_output_file(output_file_name, result):
     with open(output_file_name, 'w') as file:

@@ -24,13 +24,13 @@ healing_only_3: Correct Answer!
 healing_only_4: Correct Answer!
 healing_only_5: Correct Answer!
 main_test_1: Correct Answer!
-main_test_10: Incorrect Answer!
-main_test_2: Incorrect Answer!
+main_test_10: Correct Answer!
+main_test_2: Correct Answer!
 main_test_3: Correct Answer!
 main_test_4: Correct Answer!
 main_test_5: Correct Answer!
-main_test_6: Incorrect Answer!
-main_test_7: Incorrect Answer!
+main_test_6: Correct Answer!
+main_test_7: Correct Answer!
 main_test_8: Correct Answer!
 main_test_9: Correct Answer!
 no_special_tile_1: Correct Answer!
@@ -99,4 +99,5 @@ no_special_tile_7: Correct Answer!
 no_special_tile_8: Correct Answer!
 no_special_tile_9: Correct Answer!
 =========== Summary ==========
-Passed 96 / 100 test cases.
+Passed 100 / 100 test cases.
+All test cases passed: Accepted!

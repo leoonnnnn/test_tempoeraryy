@@ -8,3 +8,13 @@ print(memo.transpose((3, 2, 0, 1)))  #might need to flip 3 and 2
 i think transpose defaults to the dimensions backwards, so (3, 2, 1, 0), so to flip on diagonal of dimension 0 and 1, just flip them in transpose
 
 instead of editing the kill_Down...py file, just make a script that runs the command in the CL to redirect output into a file. should be much easier. like copy the autotester script, and all it needs to do is run the command, no timing/checking answers needed.
+
+
+order of memo is: (btw memo is [x][y][p][m])
+
+         [x][y][0][0]
+         [x][y][0][1]
+         [x][y][1][0]
+         [x][y][1][1]
+
+which is how i intended
