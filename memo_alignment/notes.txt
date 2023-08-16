@@ -1,0 +1,10 @@
+damage only shows up only in first 4x4, so its the (0, 0)  where (ptok, mtok)
+but it needs to be flipping along the diagonal (another transpose)
+
+can make a horz case for each vert (just transpose on diagonal). both easy to type out with multiline edit, vert just type out n ints first then multiline copy paste. horz, multiline select/edit and type in 0 to n-1 that way. but vert is easier for me to understand i think? like more slide downs than slide rights
+
+ok this line fixed it
+print(memo.transpose((3, 2, 0, 1)))  #might need to flip 3 and 2
+i think transpose defaults to the dimensions backwards, so (3, 2, 1, 0), so to flip on diagonal of dimension 0 and 1, just flip them in transpose
+
+instead of editing the kill_Down...py file, just make a script that runs the command in the CL to redirect output into a file. should be much easier. like copy the autotester script, and all it needs to do is run the command, no timing/checking answers needed.

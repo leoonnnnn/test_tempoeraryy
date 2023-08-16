@@ -1,0 +1,5 @@
+damage_only_diag: joe mama!
+damage_only_vert: joe mama!
+notes: Runtime Error (Return value is not 0)
+=========== Summary ==========
+Passed 0 / 3 test cases.
