@@ -33,10 +33,10 @@ def DP(n, H, tile_types, tile_values):
 
     minHP = DP_helper(memo, n, tile_types, tile_values, 0, 0, 0, 0)      # minimum HP needed
     
-    # print("memo after:")         # COMMENT OUT!!!
-    # print(memo.transpose((3, 2, 0, 1)))      # COMMENT OUT!!!
-    #print("Starting hp:", H)
-    #print("min needed hp:", minHP)     # COMMENT OUT!!!
+    print("memo after:")         # COMMENT OUT!!!
+    print(memo.transpose((3, 2, 0, 1)))      # COMMENT OUT!!!
+    print("Starting hp:", H)
+    print("min needed hp:", minHP)     # COMMENT OUT!!!
     return minHP <= H
 
 
