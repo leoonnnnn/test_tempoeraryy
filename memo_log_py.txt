@@ -1,5 +1,9 @@
-damage_only_diag: joe mama!
-damage_only_vert: joe mama!
-notes: Runtime Error (Return value is not 0)
+damage_only_diag: see out file for memo
+damage_only_vert: see out file for memo
+heal_only: see out file for memo
+m_only: see out file for memo
+p_and_m: see out file for memo
+p_only: see out file for memo
 =========== Summary ==========
-Passed 0 / 3 test cases.
+Passed 0 / 6 test cases.
+ignore the summary, deleted/changed part of the script

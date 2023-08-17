@@ -5,6 +5,7 @@
 # The script cannot run in Windows
 import subprocess, threading
 import os, signal, sys
+from contextlib import redirect_stdout
 
 python_executable = 'python3 '
 cpp_compile_flags = '-std=c++17'
@@ -65,15 +66,23 @@ def run_tests(cmd, test_dir, method_python):
             fin = open("./memo_alignment/" + name + "_out.txt", "r")
             output = fin.readline()
             fin.close()
+
+            #new shit
+            with open("./memo_alignment/" + name + "_out.txt", 'w') as file:
+                with redirect_stdout(file):
+                    print("your dad")
+            #new shit
+
             try:
                 output = int(output)
-                fres.write(name + ": joe mama!\n")
+                fres.write(name + ": see out file for memo\n")
             except Exception as e:
                 wa_count += 1
                 fres.write(name + str(e) + ": Unrecognized Output Format\n")
 
     fres.write("=========== Summary ==========\n")
     fres.write("Passed " + str(pass_count) + " / " + str(count) + " test cases.\n")
+    fres.write("ignore the summary, deleted/changed part of the script\n")
     if (pass_count == count):
         fres.write("All test cases passed: Accepted!\n")
     fres.close()

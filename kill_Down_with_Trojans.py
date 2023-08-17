@@ -31,13 +31,13 @@ def DP(n, H, tile_types, tile_values):
     # print("\nmemo before:")      # COMMENT OUT!!!
     # print(memo.transpose((3, 2, 0, 1)))      # COMMENT OUT!!!
 
-    res = DP_helper(memo, n, tile_types, tile_values, 0, 0, 0, 0)
+    minHP = DP_helper(memo, n, tile_types, tile_values, 0, 0, 0, 0)
     
     # print("memo after:")         # COMMENT OUT!!!
     # print(memo.transpose((3, 2, 0, 1)))      # COMMENT OUT!!!
     #print("Starting hp:", H)
-    #print("min needed hp:", res)     # COMMENT OUT!!!
-    return res <= H
+    #print("min needed hp:", minHP)     # COMMENT OUT!!!
+    return minHP <= H
 
 
 def DP_helper(memo, n, tile_types, tile_values, x, y, pTok, mTok):
@@ -46,7 +46,7 @@ def DP_helper(memo, n, tile_types, tile_values, x, y, pTok, mTok):
             return tile_values[x][y]
         return 0
     if x >= n or y >= n:
-        return 100000000000000
+        return float("inf")
     if memo[x][y][pTok][mTok] != -1:
         return memo[x][y][pTok][mTok]
     

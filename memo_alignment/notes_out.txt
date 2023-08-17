@@ -12,9 +12,12 @@ instead of editing the kill_Down...py file, just make a script that runs the com
 
 order of memo is: (btw memo is [x][y][p][m])
 
-         [x][y][0][0]
-         [x][y][0][1]
-         [x][y][1][0]
-         [x][y][1][1]
+         [x][y][0][0]        no tokens
+         [x][y][1][0]        prot token
+         [x][y][0][1]        mult token
+         [x][y][1][1]        prot and mult token
 
 which is how i intended
+
+
+renamed to notes_out.txt to dodge the script lol, prob could just exclude it in the if check but this was easier
